@@ -1,0 +1,13 @@
+//
+//  staging.xcconfig
+//  Runner
+//
+//  Created by phan.duong.ngoc on 03/07/2024.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "Generated.xcconfig"
+
+DART_DEFINES=RkxBVk9SPXN0YWdpbmc= // FLAVOR=staging
