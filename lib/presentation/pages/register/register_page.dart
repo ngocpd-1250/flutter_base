@@ -22,7 +22,7 @@ class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).appColors.backgroundPrimary,
+      backgroundColor: context.theme.appColors.backgroundPrimary,
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
@@ -33,7 +33,7 @@ class RegisterPage extends StatelessWidget {
               children: <Widget>[
                 Text(
                   'Register',
-                  style: Theme.of(context).textTheme.titleLarge,
+                  style: context.theme.textTheme.titleLarge,
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 16),
@@ -69,14 +69,14 @@ class RegisterPage extends StatelessWidget {
                 Text(
                   "Don't have an account?",
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.titleSmall,
+                  style: context.theme.textTheme.titleSmall,
                 ),
                 const SizedBox(height: 16),
                 TextButton(
                   onPressed: () => context.navigator.toLogin(),
                   child: Text(
                     'Login',
-                    style: Theme.of(context).textTheme.titleSmall,
+                    style: context.theme.textTheme.titleSmall,
                   ),
                 ),
               ],

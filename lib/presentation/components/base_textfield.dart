@@ -40,15 +40,13 @@ class BaseTextField extends StatelessWidget {
                           hintText: placeholder,
                           border: InputBorder.none,
                           hintStyle: TextStyle(
-                            color: Theme.of(context)
-                                .appColors
-                                .labelPrimary
+                            color: context.theme.appColors.labelPrimary
                                 .withAlpha(120),
                             fontSize: 14.0,
                           ),
                         ),
                         style: TextStyle(
-                          color: Theme.of(context).appColors.labelPrimary,
+                          color: context.theme.appColors.labelPrimary,
                         ),
                       )
                     : TextField(
@@ -57,15 +55,13 @@ class BaseTextField extends StatelessWidget {
                           hintText: placeholder,
                           border: InputBorder.none,
                           hintStyle: TextStyle(
-                            color: Theme.of(context)
-                                .appColors
-                                .labelPrimary
+                            color: context.theme.appColors.labelPrimary
                                 .withAlpha(120),
                             fontSize: 14.0,
                           ),
                         ),
                         style: TextStyle(
-                          color: Theme.of(context).appColors.labelPrimary,
+                          color: context.theme.appColors.labelPrimary,
                         ),
                       ),
               ),
