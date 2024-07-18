@@ -65,7 +65,7 @@ class BaseTextField extends StatelessWidget {
                   maxLength: inputOptions?.maxLength,
                   cursorColor: inputOptions?.cursorColor,
                   cursorErrorColor: context.theme.appColors.primary,
-                  maxLines: isSecure ? 1 : inputOptions?.maxLines,
+                  maxLines: inputOptions?.maxLines ?? 1,
                   keyboardType: inputOptions?.keyboardType,
                   expands: inputOptions?.expands ?? false,
                   enabled: inputOptions?.enabled ?? true,
