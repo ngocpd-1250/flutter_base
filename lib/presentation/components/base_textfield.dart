@@ -118,6 +118,9 @@ class BaseTextField extends StatelessWidget {
                           ?.withAlpha(120),
                       fontSize: 14.0,
                     ),
+                    errorStyle: const TextStyle(
+                      color: Colors.red,
+                    ),
                     counterText: '',
                   ),
                   style: TextStyle(
