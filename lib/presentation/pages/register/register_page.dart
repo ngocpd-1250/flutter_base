@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:base_flutter/presentation/components/base_button.dart';
 import 'package:base_flutter/presentation/components/base_textfield.dart';
 import 'package:base_flutter/presentation/router/app_navigator.dart';
@@ -32,7 +34,7 @@ class _RegisterPageState extends State<RegisterPage> {
           child: Form(
             key: _formKey,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -42,7 +44,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     style: context.theme.textTheme.titleLarge,
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16.h),
                   BaseTextField(
                     controller: usernameController,
                     placeholder: 'username',
@@ -53,7 +55,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         {_formKey.currentState!.validate()}
                     },
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16.h),
                   BaseTextField(
                     controller: passwordController,
                     placeholder: 'password',
@@ -66,7 +68,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         {_formKey.currentState!.validate()}
                     },
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16.h),
                   BaseTextField(
                     controller: confirmPasswordController,
                     placeholder: 'confirm password',
@@ -82,7 +84,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         {_formKey.currentState!.validate()}
                     },
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16.h),
                   BaseButton(
                     title: 'Register',
                     isEnabled: isEnable,
@@ -91,13 +93,13 @@ class _RegisterPageState extends State<RegisterPage> {
                       _formKey.currentState!.validate()
                     },
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16.h),
                   Text(
                     "Don't have an account?",
                     textAlign: TextAlign.center,
                     style: context.theme.textTheme.titleSmall,
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16.h),
                   TextButton(
                     onPressed: () => context.navigator.toLogin(),
                     child: Text(

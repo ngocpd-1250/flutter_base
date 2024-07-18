@@ -1,68 +1,70 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 abstract class AppTypography {
-  static const TextStyle displayLarge = TextStyle(
-    fontSize: 48,
+  static TextStyle displayLarge = TextStyle(
+    fontSize: 48.sp,
     fontWeight: FontWeight.bold,
   );
 
-  static const TextStyle displayMedium = TextStyle(
-    fontSize: 40,
+  static TextStyle displayMedium = TextStyle(
+    fontSize: 40.sp,
     fontWeight: FontWeight.bold,
   );
 
-  static const TextStyle displaySmall = TextStyle(
-    fontSize: 32,
+  static TextStyle displaySmall = TextStyle(
+    fontSize: 32.sp,
     fontWeight: FontWeight.bold,
   );
 
-  static const TextStyle headlineLarge = TextStyle(
-    fontSize: 28,
+  static TextStyle headlineLarge = TextStyle(
+    fontSize: 28.sp,
     fontWeight: FontWeight.bold,
   );
 
-  static const TextStyle headlineMedium = TextStyle(
-    fontSize: 24,
+  static TextStyle headlineMedium = TextStyle(
+    fontSize: 24.sp,
     fontWeight: FontWeight.bold,
   );
 
-  static const TextStyle headlineSmall = TextStyle(
-    fontSize: 20,
+  static TextStyle headlineSmall = TextStyle(
+    fontSize: 20.sp,
     fontWeight: FontWeight.bold,
   );
 
-  static const TextStyle titleLarge = TextStyle(
-    fontSize: 18,
+  static TextStyle titleLarge = TextStyle(
+    fontSize: 18.sp,
     fontWeight: FontWeight.w500,
   );
 
-  static const TextStyle titleMedium = TextStyle(
-    fontSize: 16,
+  static TextStyle titleMedium = TextStyle(
+    fontSize: 16.sp,
     fontWeight: FontWeight.w500,
   );
 
-  static const TextStyle titleSmall = TextStyle(
-    fontSize: 14,
+  static TextStyle titleSmall = TextStyle(
+    fontSize: 14.sp,
     fontWeight: FontWeight.w500,
   );
 
-  static const TextStyle bodyLarge = TextStyle(
-    fontSize: 16,
+  static TextStyle bodyLarge = TextStyle(
+    fontSize: 16.sp,
     fontWeight: FontWeight.normal,
   );
 
-  static const TextStyle bodyMedium = TextStyle(
-    fontSize: 14,
+  static TextStyle bodyMedium = TextStyle(
+    fontSize: 14.sp,
     fontWeight: FontWeight.normal,
   );
 
-  static const TextStyle bodySmall = TextStyle(
-    fontSize: 12,
+  static TextStyle bodySmall = TextStyle(
+    fontSize: 12.sp,
     fontWeight: FontWeight.normal,
   );
 
-  static const TextStyle labelLarge = TextStyle(
-    fontSize: 14,
+  static TextStyle labelLarge = TextStyle(
+    fontSize: 14.sp,
     fontWeight: FontWeight.w500,
   );
 }
