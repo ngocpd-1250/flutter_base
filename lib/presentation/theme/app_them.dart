@@ -71,7 +71,7 @@ class AppTheme with ChangeNotifier {
   static final _darkAppColors = AppColorsExtension(
     primary: const Color(0xFF7877C0),
     backgroundPrimary: const Color(0xFF242A32),
-    todoCardBackground: Color.fromARGB(0, 65, 59, 46),
+    todoCardBackground: const Color(0xFFFFFFFF),
     backButtonPrimary: const Color(0xFFFAFDFD),
     orangeFlush: const Color(0xFFFF8700),
     labelPrimary: const Color(0xFFF8FBFB),

@@ -1,4 +1,5 @@
 enum AppRoutes {
+  onboarding(name: 'onboarding', path: '/onboarding'),
   login(name: 'login', path: '/login'),
   register(name: 'register', path: '/register');
 

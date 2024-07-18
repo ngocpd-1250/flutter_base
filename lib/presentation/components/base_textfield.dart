@@ -2,12 +2,40 @@ import 'package:flutter/material.dart';
 
 import 'package:base_flutter/presentation/theme/app_them.dart';
 
+class InputOptions {
+  InputOptions({
+    this.maxLength,
+    this.cursorColor,
+    this.maxLines,
+    this.keyboardType,
+    this.width,
+    this.padding,
+    this.expands,
+    this.enabled,
+    this.obscuringCharacter = '●',
+    this.textInputAction = TextInputAction.done,
+  });
+
+  final int? maxLength;
+  final Color? cursorColor;
+  final int? maxLines;
+  final TextInputType? keyboardType;
+  final double? width;
+  final EdgeInsets? padding;
+  final bool? expands;
+  final bool? enabled;
+  final String? obscuringCharacter;
+  final TextInputAction? textInputAction;
+}
+
 class BaseTextField extends StatelessWidget {
   final TextEditingController controller;
   final String placeholder;
   final IconData icon;
   final bool isSecure;
-  final String errorMessage;
+  final InputOptions? inputOptions;
+  final void Function(String)? onChanged;
+  final String? Function(String?)? validator;
 
   const BaseTextField({
     super.key,
@@ -15,7 +43,9 @@ class BaseTextField extends StatelessWidget {
     required this.placeholder,
     required this.icon,
     this.isSecure = false,
-    this.errorMessage = '',
+    this.inputOptions,
+    this.onChanged,
+    this.validator,
   });
 
   @override
@@ -25,66 +55,79 @@ class BaseTextField extends StatelessWidget {
       children: [
         Row(
           children: [
-            Icon(
-              icon,
-              color: Colors.grey,
-            ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: isSecure
-                    ? TextField(
-                        controller: controller,
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          hintText: placeholder,
-                          border: InputBorder.none,
-                          hintStyle: TextStyle(
-                            color: context.theme.appColors.labelPrimary
-                                .withAlpha(120),
-                            fontSize: 14.0,
-                          ),
-                        ),
-                        style: TextStyle(
-                          color: context.theme.appColors.labelPrimary,
-                        ),
-                      )
-                    : TextField(
-                        controller: controller,
-                        decoration: InputDecoration(
-                          hintText: placeholder,
-                          border: InputBorder.none,
-                          hintStyle: TextStyle(
-                            color: context.theme.appColors.labelPrimary
-                                .withAlpha(120),
-                            fontSize: 14.0,
-                          ),
-                        ),
-                        style: TextStyle(
-                          color: context.theme.appColors.labelPrimary,
-                        ),
+                padding: inputOptions?.padding ?? const EdgeInsets.all(0),
+                child: TextFormField(
+                  controller: controller,
+                  obscureText: isSecure,
+                  validator: validator,
+                  maxLength: inputOptions?.maxLength,
+                  cursorColor: inputOptions?.cursorColor,
+                  cursorErrorColor: context.theme.appColors.primary,
+                  maxLines: isSecure ? 1 : inputOptions?.maxLines,
+                  keyboardType: inputOptions?.keyboardType,
+                  expands: inputOptions?.expands ?? false,
+                  enabled: inputOptions?.enabled ?? true,
+                  obscuringCharacter: inputOptions?.obscuringCharacter ?? '•',
+                  textInputAction:
+                      inputOptions?.textInputAction ?? TextInputAction.done,
+                  onChanged: onChanged,
+                  decoration: InputDecoration(
+                    prefixIcon: Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: Icon(
+                        icon,
+                        color: Colors.grey,
                       ),
+                    ),
+                    prefixIconConstraints: const BoxConstraints(
+                      minWidth: 10,
+                      minHeight: 10,
+                    ),
+                    hintText: placeholder,
+                    border: const UnderlineInputBorder(
+                      borderSide: BorderSide(width: 0.5),
+                    ),
+                    enabledBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        width: 0.8,
+                        color: Colors.grey,
+                      ),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        width: 0.8,
+                        color: context.theme.appColors.primary,
+                      ),
+                    ),
+                    errorBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        width: 0.8,
+                        color: Colors.grey,
+                      ),
+                    ),
+                    focusedErrorBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        width: 0.8,
+                        color: context.theme.appColors.primary,
+                      ),
+                    ),
+                    hintStyle: TextStyle(
+                      color: context.theme.textTheme.bodySmall?.color
+                          ?.withAlpha(120),
+                      fontSize: 14.0,
+                    ),
+                    counterText: '',
+                  ),
+                  style: TextStyle(
+                    color: context.theme.textTheme.bodySmall?.color,
+                  ),
+                ),
               ),
             ),
           ],
         ),
-        Container(
-          height: 1,
-          color: Colors.grey,
-          margin: const EdgeInsets.symmetric(vertical: 8.0),
-        ),
-        if (errorMessage.isNotEmpty)
-          AnimatedOpacity(
-            opacity: errorMessage.isNotEmpty ? 1.0 : 0.0,
-            duration: const Duration(milliseconds: 300),
-            child: Text(
-              errorMessage,
-              style: const TextStyle(
-                color: Colors.red,
-                fontSize: 12,
-              ),
-            ),
-          ),
       ],
     );
   }
