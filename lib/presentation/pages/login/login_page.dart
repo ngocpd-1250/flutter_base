@@ -6,6 +6,7 @@ import 'package:base_flutter/presentation/components/base_button.dart';
 import 'package:base_flutter/presentation/components/base_textfield.dart';
 import 'package:base_flutter/presentation/router/app_navigator.dart';
 import 'package:base_flutter/presentation/theme/app_them.dart';
+import 'package:base_flutter/shared/build_context_ext.dart';
 import 'package:base_flutter/shared/utils/input_validator.dart';
 
 class LoginPage extends StatefulWidget {
@@ -38,14 +39,14 @@ class _LoginPageState extends State<LoginPage> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   Text(
-                    'Login',
+                    context.l10n.commonLogin,
                     style: context.theme.textTheme.titleLarge,
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: 16.h),
                   BaseTextField(
                     controller: usernameController,
-                    placeholder: 'username',
+                    placeholder: context.l10n.commonUsername,
                     icon: Icons.email,
                     validator: (value) => InputValidator.validateEmail(value),
                     onChanged: (_) => {
@@ -55,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
                   SizedBox(height: 16.h),
                   BaseTextField(
                     controller: passwordController,
-                    placeholder: 'password',
+                    placeholder: context.l10n.commonPassword,
                     icon: Icons.lock,
                     isSecure: true,
                     validator: (value) =>
@@ -66,16 +67,16 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   SizedBox(height: 16.h),
                   BaseButton(
-                    title: 'Login',
+                    title: context.l10n.commonLogin,
                     isEnabled: isEnable,
                     action: () {
                       hasPressedLogin = true;
-                      print(_formKey.currentState!.validate());
+                      _formKey.currentState!.validate();
                     },
                   ),
                   SizedBox(height: 16.h),
                   Text(
-                    "Don't have an account?",
+                    context.l10n.commonDontHaveAccount,
                     textAlign: TextAlign.center,
                     style: context.theme.textTheme.titleSmall,
                   ),
@@ -83,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                   TextButton(
                     onPressed: () => context.navigator.toRegister(),
                     child: Text(
-                      'Register',
+                      context.l10n.commonRegister,
                       style: context.theme.textTheme.titleSmall,
                     ),
                   ),

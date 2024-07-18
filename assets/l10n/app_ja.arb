@@ -5,5 +5,12 @@
     "onboardingPage2Title": "簡単に整理",
     "onboardingPage2Description": "ミッション、目標、または単に保存場所に、似たようなグループにマイムーリーズを整理しましょう。",
     "onboardingPage3Title": "簡単に質問",
-    "onboardingPage3Description": "マイムーリーズに関連する何かを尋ねて、すぐに答えを得ましょう。"
+    "onboardingPage3Description": "マイムーリーズに関連する何かを尋ねて、すぐに答えを得ましょう。",
+    "commonRegister": "登録する",
+    "commonLogin": "ログイン",
+    "commonUsername": "ユーザー名",
+    "commonPassword": "パスワード",
+    "commonConfirmPassword": "パスワードを確認",
+    "commonDontHaveAccount": "アカウントをお持ちでないですか？",
+    "commonAlreadyHaveAccount": "すでにアカウントをお持ちですか？"
 }

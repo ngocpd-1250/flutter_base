@@ -5,7 +5,7 @@ import 'app_text_theme_extension.dart';
 import 'app_typography.dart';
 
 class AppTheme with ChangeNotifier {
-  ThemeMode _themeMode = ThemeMode.dark;
+  ThemeMode _themeMode = ThemeMode.light;
 
   ThemeMode get themeMode => _themeMode;
 

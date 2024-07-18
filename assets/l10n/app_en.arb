@@ -5,5 +5,12 @@
     "onboardingPage2Title": "Easily organise",
     "onboardingPage2Description": "Organise mymories into similar groups under missions, goals or just storage.",
     "onboardingPage3Title": "Simply ask",
-    "onboardingPage3Description": "Ask anything relating to your mymories and get answers upfront. "
+    "onboardingPage3Description": "Ask anything relating to your mymories and get answers upfront. ",
+    "commonRegister": "Register",
+    "commonLogin": "Login",
+    "commonUsername": "Username",
+    "commonPassword": "Password",
+    "commonConfirmPassword": "Confirm Password",
+    "commonDontHaveAccount": "Don’t have an account?",
+    "commonAlreadyHaveAccount": "Already have an account?"
 }

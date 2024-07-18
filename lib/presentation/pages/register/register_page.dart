@@ -6,6 +6,7 @@ import 'package:base_flutter/presentation/components/base_button.dart';
 import 'package:base_flutter/presentation/components/base_textfield.dart';
 import 'package:base_flutter/presentation/router/app_navigator.dart';
 import 'package:base_flutter/presentation/theme/app_them.dart';
+import 'package:base_flutter/shared/build_context_ext.dart';
 import 'package:base_flutter/shared/utils/input_validator.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -40,14 +41,14 @@ class _RegisterPageState extends State<RegisterPage> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   Text(
-                    'Register',
+                    context.l10n.commonRegister,
                     style: context.theme.textTheme.titleLarge,
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: 16.h),
                   BaseTextField(
                     controller: usernameController,
-                    placeholder: 'username',
+                    placeholder: context.l10n.commonUsername,
                     icon: Icons.email,
                     validator: (value) => InputValidator.validateEmail(value),
                     onChanged: (_) => {
@@ -58,7 +59,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   SizedBox(height: 16.h),
                   BaseTextField(
                     controller: passwordController,
-                    placeholder: 'password',
+                    placeholder: context.l10n.commonPassword,
                     icon: Icons.lock,
                     isSecure: true,
                     validator: (value) =>
@@ -71,7 +72,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   SizedBox(height: 16.h),
                   BaseTextField(
                     controller: confirmPasswordController,
-                    placeholder: 'confirm password',
+                    placeholder: context.l10n.commonConfirmPassword,
                     icon: Icons.lock,
                     isSecure: true,
                     validator: (value) =>
@@ -86,7 +87,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   SizedBox(height: 16.h),
                   BaseButton(
-                    title: 'Register',
+                    title: context.l10n.commonRegister,
                     isEnabled: isEnable,
                     action: () => {
                       hasPressedRegister = true,
@@ -95,7 +96,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   SizedBox(height: 16.h),
                   Text(
-                    "Don't have an account?",
+                    context.l10n.commonAlreadyHaveAccount,
                     textAlign: TextAlign.center,
                     style: context.theme.textTheme.titleSmall,
                   ),
@@ -103,7 +104,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   TextButton(
                     onPressed: () => context.navigator.toLogin(),
                     child: Text(
-                      'Login',
+                      context.l10n.commonLogin,
                       style: context.theme.textTheme.titleSmall,
                     ),
                   ),
