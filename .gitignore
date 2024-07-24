@@ -46,6 +46,7 @@ app.*.map.json
 # Generated files
 **/*.g.dart
 **/*.gen.dart
+*.freezed.dart
 
 # Others
 .DS_Store
