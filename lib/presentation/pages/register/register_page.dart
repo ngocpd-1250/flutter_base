@@ -23,7 +23,6 @@ class _RegisterPageState extends State<RegisterPage> {
       TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
-  final bool isEnable = true;
   bool hasPressedRegister = false;
 
   @override
@@ -53,7 +52,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     validator: (value) => InputValidator.validateEmail(value),
                     onChanged: (_) => {
                       if (hasPressedRegister)
-                        {_formKey.currentState!.validate()}
+                        {_formKey.currentState?.validate()}
                     },
                   ),
                   SizedBox(height: 16.h),
@@ -66,7 +65,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         InputValidator.validatePassword(value),
                     onChanged: (_) => {
                       if (hasPressedRegister)
-                        {_formKey.currentState!.validate()}
+                        {_formKey.currentState?.validate()}
                     },
                   ),
                   SizedBox(height: 16.h),
@@ -82,16 +81,15 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     onChanged: (_) => {
                       if (hasPressedRegister)
-                        {_formKey.currentState!.validate()}
+                        {_formKey.currentState?.validate()}
                     },
                   ),
                   SizedBox(height: 16.h),
                   BaseButton(
                     title: context.l10n.commonRegister,
-                    isEnabled: isEnable,
                     action: () => {
                       hasPressedRegister = true,
-                      _formKey.currentState!.validate()
+                      _formKey.currentState?.validate()
                     },
                   ),
                   SizedBox(height: 16.h),

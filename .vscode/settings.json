@@ -1,10 +1,15 @@
 {
   "cSpell.words": [
     "cupertino",
+    "dartx",
     "envieddatakey",
+    "interactor",
     "lerp",
     "mymories",
     "organise",
-    "screenutil"
+    "prefs",
+    "riverpod",
+    "screenutil",
+    "usecases"
   ]
 }

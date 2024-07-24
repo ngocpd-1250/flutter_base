@@ -1,0 +1,4 @@
+enum ErrorResponseMapperType {
+  jsonObject,
+  jsonArray,
+}

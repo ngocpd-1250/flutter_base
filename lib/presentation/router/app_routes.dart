@@ -1,7 +1,8 @@
 enum AppRoutes {
   onboarding(name: 'onboarding', path: '/onboarding'),
   login(name: 'login', path: '/login'),
-  register(name: 'register', path: '/register');
+  register(name: 'register', path: '/register'),
+  topMovie(name: 'topMovie', path: '/topMovie');
 
   const AppRoutes({
     required this.name,

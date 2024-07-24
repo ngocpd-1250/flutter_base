@@ -21,8 +21,7 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
-  bool isEnable = true;
-  bool hasPressedLogin = false;
+  bool _hasPressedLogin = false;
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
                     icon: Icons.email,
                     validator: (value) => InputValidator.validateEmail(value),
                     onChanged: (_) => {
-                      if (hasPressedLogin) {_formKey.currentState!.validate()}
+                      if (_hasPressedLogin) {_formKey.currentState?.validate()}
                     },
                   ),
                   SizedBox(height: 16.h),
@@ -62,16 +61,15 @@ class _LoginPageState extends State<LoginPage> {
                     validator: (value) =>
                         InputValidator.validatePassword(value),
                     onChanged: (_) => {
-                      if (hasPressedLogin) {_formKey.currentState!.validate()}
+                      if (_hasPressedLogin) {_formKey.currentState?.validate()}
                     },
                   ),
                   SizedBox(height: 16.h),
                   BaseButton(
                     title: context.l10n.commonLogin,
-                    isEnabled: isEnable,
                     action: () {
-                      hasPressedLogin = true;
-                      _formKey.currentState!.validate();
+                      _hasPressedLogin = true;
+                      _formKey.currentState?.validate();
                     },
                   ),
                   SizedBox(height: 16.h),
@@ -82,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   SizedBox(height: 16.h),
                   TextButton(
-                    onPressed: () => context.navigator.toRegister(),
+                    onPressed: () => context.navigator.toTopMovie(),
                     child: Text(
                       context.l10n.commonRegister,
                       style: context.theme.textTheme.titleSmall,
