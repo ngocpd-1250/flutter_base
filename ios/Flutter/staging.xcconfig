@@ -12,3 +12,5 @@
 #include "Pods/Target Support Files/Pods-Runner/Pods-Runner.staging.xcconfig"
 
 DART_DEFINES=RkxBVk9SPXN0YWdpbmc= // FLAVOR=staging
+APP_NAME=[STAGING]
+APP_BUNDLE_ID=com.baseFlutter.staging
