@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import 'package:base_flutter/presentation/pages/login/login_page.dart';
 import 'package:base_flutter/presentation/pages/onboarding/onboarding_page.dart';
 import 'package:base_flutter/presentation/pages/register/register_page.dart';
-import 'package:base_flutter/presentation/pages/top_movie/top_movie_page.dart';
 import 'package:base_flutter/presentation/router/app_routes.dart';
 
 class AppRoute {
@@ -22,7 +21,7 @@ class AppRoute {
       GoRoute(
         name: AppRoutes.login.name,
         path: AppRoutes.login.path,
-        pageBuilder: (context, state) => const MaterialPage(
+        pageBuilder: (context, state) => MaterialPage(
           child: LoginPage(),
         ),
       ),
@@ -32,14 +31,7 @@ class AppRoute {
         pageBuilder: (context, state) => const MaterialPage(
           child: RegisterPage(),
         ),
-      ),
-      GoRoute(
-        name: AppRoutes.topMovie.name,
-        path: AppRoutes.topMovie.path,
-        pageBuilder: (context, state) => const MaterialPage(
-          child: TopMoviePage(),
-        ),
-      ),
+      )
     ],
   );
 }

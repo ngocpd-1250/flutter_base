@@ -4,14 +4,12 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'package:base_flutter/di/di.dart';
 import 'package:base_flutter/presentation/router/app_route.dart';
 import 'package:base_flutter/presentation/theme/app_them.dart';
 import 'package:base_flutter/presentation/theme/app_theme_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await configureInjection();
   runApp(const ProviderScope(
     overrides: [],
     child: MyApp(),
@@ -33,7 +31,7 @@ class MyApp extends ConsumerWidget {
         return MaterialApp.router(
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
-          theme: AppTheme.light,
+          theme: AppTheme.dark,
           darkTheme: AppTheme.dark,
           themeMode: appTheme.themeMode,
           routerConfig: AppRoute.router,

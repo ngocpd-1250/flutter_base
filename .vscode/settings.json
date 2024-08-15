@@ -10,6 +10,8 @@
     "prefs",
     "riverpod",
     "screenutil",
+    "unfocus",
+    "usecase",
     "usecases"
   ]
 }

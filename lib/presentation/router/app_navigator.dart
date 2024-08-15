@@ -7,7 +7,6 @@ import 'app_routes.dart';
 abstract class AppNavigator {
   void toLogin();
   void toRegister();
-  void toTopMovie();
 }
 
 class AppNavigatorImpl implements AppNavigator {
@@ -23,11 +22,6 @@ class AppNavigatorImpl implements AppNavigator {
   @override
   void toRegister() {
     context.pushReplacementNamed(AppRoutes.register.name);
-  }
-
-  @override
-  void toTopMovie() {
-    context.pushReplacementNamed(AppRoutes.topMovie.name);
   }
 }
 
