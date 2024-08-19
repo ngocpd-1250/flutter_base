@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:base_flutter/presentation/components/base_button.dart';
-import 'package:base_flutter/presentation/router/app_navigator.dart';
 import 'package:base_flutter/presentation/theme/app_them.dart';
 import 'package:base_flutter/shared/build_context_ext.dart';
 import 'package:base_flutter/shared/gen/assets.gen.dart';

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
 
+import 'package:base_flutter/presentation/pages/home/home_page.dart';
 import 'package:base_flutter/presentation/pages/login/login_page.dart';
 import 'package:base_flutter/presentation/pages/onboarding/onboarding_page.dart';
 import 'package:base_flutter/presentation/pages/register/register_page.dart';
@@ -28,8 +29,15 @@ class AppRoute {
       GoRoute(
         name: AppRoutes.register.name,
         path: AppRoutes.register.path,
-        pageBuilder: (context, state) => const MaterialPage(
+        pageBuilder: (context, state) => MaterialPage(
           child: RegisterPage(),
+        ),
+      ),
+      GoRoute(
+        name: AppRoutes.home.name,
+        path: AppRoutes.home.path,
+        pageBuilder: (context, state) => const MaterialPage(
+          child: HomePage(),
         ),
       )
     ],

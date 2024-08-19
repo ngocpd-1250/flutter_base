@@ -12,5 +12,6 @@
     "commonPassword": "Password",
     "commonConfirmPassword": "Confirm Password",
     "commonDontHaveAccount": "Don’t have an account?",
-    "commonAlreadyHaveAccount": "Already have an account?"
+    "commonAlreadyHaveAccount": "Already have an account?",
+    "registerSuccess": "Registered successfully. Please login!"
 }

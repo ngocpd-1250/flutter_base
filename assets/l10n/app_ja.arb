@@ -12,5 +12,6 @@
     "commonPassword": "パスワード",
     "commonConfirmPassword": "パスワードを確認",
     "commonDontHaveAccount": "アカウントをお持ちでないですか？",
-    "commonAlreadyHaveAccount": "すでにアカウントをお持ちですか？"
+    "commonAlreadyHaveAccount": "すでにアカウントをお持ちですか？",
+    "registerSuccess": "登録が成功しました。ログインしてください!"
 }

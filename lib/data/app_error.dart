@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 
 import 'package:dio/dio.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:base_flutter/data/remote/response/error_response.dart';
 
@@ -14,6 +15,7 @@ enum AppErrorType {
   cancel,
   timeout,
   server,
+  firebaseAuth,
   unknown,
 }
 
@@ -86,6 +88,10 @@ class AppError {
       }
     } else if (exception is AuthenticationException) {
       type = AppErrorType.unauthorized;
+      code = HttpStatus.unauthorized;
+      message = exception.message;
+    } else if (exception is FirebaseAuthException) {
+      type = AppErrorType.firebaseAuth;
       code = HttpStatus.unauthorized;
       message = exception.message;
     } else {

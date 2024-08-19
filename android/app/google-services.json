@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "155760957773",
+    "project_id": "fir-swiftui-4f49f",
+    "storage_bucket": "fir-swiftui-4f49f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:155760957773:android:7ce973f12b023b6b61bf04",
+        "android_client_info": {
+          "package_name": "ngocpd.SwiftUIBase.android.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDp--jBlRrF6NiVT1PMpSy-5ExW_QxWPnc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

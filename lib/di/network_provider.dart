@@ -51,7 +51,7 @@ NoneAuthApi noneAuthApi(NoneAuthApiRef ref) {
 AuthInterceptor authInterceptor(AuthInterceptorRef ref) {
   return AuthInterceptor(
     currentDio: ref.watch(noneAuthDioBuilderProvider),
-    secureStorage: ref.watch(secureStorageProvider).requireValue,
+    secureStorage: ref.watch(secureStorageProvider),
     noneAuthApi: ref.watch(noneAuthApiProvider),
   );
 }

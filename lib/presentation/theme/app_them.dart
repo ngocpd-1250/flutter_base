@@ -109,10 +109,3 @@ extension AppThemeExtension on ThemeData {
   AppTextThemeExtension get appTextTheme =>
       extension<AppTextThemeExtension>() ?? AppTheme._lightTextTheme;
 }
-
-/// A more convenient way to get `ThemeData` from the `BuildContext`.
-///
-/// Usage example: `context.theme`.
-extension ThemeGetter on BuildContext {
-  ThemeData get theme => Theme.of(this);
-}

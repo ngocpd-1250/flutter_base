@@ -7,6 +7,7 @@ import 'app_routes.dart';
 abstract class AppNavigator {
   void toLogin();
   void toRegister();
+  void toHome();
 }
 
 class AppNavigatorImpl implements AppNavigator {
@@ -23,8 +24,9 @@ class AppNavigatorImpl implements AppNavigator {
   void toRegister() {
     context.pushReplacementNamed(AppRoutes.register.name);
   }
-}
 
-extension NavigationHelpersExt on BuildContext {
-  AppNavigator get navigator => AppNavigatorImpl(this);
+  @override
+  void toHome() {
+    context.replaceNamed(AppRoutes.home.name);
+  }
 }

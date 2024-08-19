@@ -3,21 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import 'package:base_flutter/data/app_error.dart';
 import 'package:base_flutter/presentation/base/process_status.dart';
 import 'package:base_flutter/presentation/components/app_loading.dart';
 import 'package:base_flutter/presentation/components/base_button.dart';
 import 'package:base_flutter/presentation/components/base_textfield.dart';
 import 'package:base_flutter/presentation/pages/login/login_state.dart';
 import 'package:base_flutter/presentation/pages/login/login_view_model.dart';
-import 'package:base_flutter/presentation/router/app_navigator.dart';
 import 'package:base_flutter/presentation/theme/app_them.dart';
 import 'package:base_flutter/shared/build_context_ext.dart';
 import 'package:base_flutter/shared/utils/input_validator.dart';
 
 class LoginPage extends ConsumerWidget {
-  LoginPage({
-    super.key,
-  });
+  LoginPage({super.key});
 
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -27,9 +25,16 @@ class LoginPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.listen<LoginState>(loginViewModelProvider, (_, next) {
+    ref.listen<LoginState>(loginViewModelProvider, (previous, next) {
       if (next.status.isSuccess) {
-        context.navigator.toRegister();
+        context.navigator.toHome();
+      }
+      if (next.status == ProcessStatus.failure && next.error != null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text((next.error as AppError).message ?? ''),
+          ),
+        );
       }
     });
     return Scaffold(
@@ -118,7 +123,8 @@ class LoginPage extends ConsumerWidget {
   void _onLogin(BuildContext context, WidgetRef ref) {
     FocusScope.of(context).unfocus();
     _hasPressedLogin = true;
-    if (_formKey.currentState?.validate() ?? false) {
+    final isValidInput = _formKey.currentState?.validate() ?? false;
+    if (isValidInput) {
       ref
           .read(loginViewModelProvider.notifier)
           .login(_usernameController.text, _passwordController.text);
