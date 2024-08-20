@@ -1,6 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:base_flutter/di/repository_provider.dart';
+import 'package:base_flutter/domain/usecases/complete_onboarding_usecase.dart';
 import 'package:base_flutter/domain/usecases/login_usecase.dart';
 import 'package:base_flutter/domain/usecases/register_usecase.dart';
 
@@ -14,4 +15,10 @@ LoginUseCase loginUseCase(LoginUseCaseRef ref) {
 @riverpod
 RegisterUseCase registerUseCase(RegisterUseCaseRef ref) {
   return RegisterUseCase(ref.watch(authRepositoryProvider));
+}
+
+@riverpod
+CompleteOnboardingUseCase completeOnboardingUseCase(
+    CompleteOnboardingUseCaseRef ref) {
+  return CompleteOnboardingUseCase(ref.watch(appRepositoryProvider));
 }

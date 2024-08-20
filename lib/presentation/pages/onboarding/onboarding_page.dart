@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import 'package:base_flutter/di/usecase_provider.dart';
 import 'package:base_flutter/presentation/components/base_button.dart';
 import 'package:base_flutter/presentation/theme/app_them.dart';
 import 'package:base_flutter/shared/build_context_ext.dart';
@@ -14,19 +16,15 @@ enum OnboardingPageType {
   page3,
 }
 
-class OnboardingPage extends StatefulWidget {
-  const OnboardingPage({super.key});
+class OnboardingPage extends ConsumerWidget {
+  OnboardingPage({super.key});
 
-  @override
-  State<OnboardingPage> createState() => _OnboardingPageState();
-}
-
-class _OnboardingPageState extends State<OnboardingPage> {
-  int selectedPage = 0;
+  final selectedPageProvider = StateProvider<int>((ref) => 0);
   List<OnboardingPageType> pages = OnboardingPageType.values;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final selectedPage = ref.watch(selectedPageProvider);
     return Scaffold(
       backgroundColor: context.theme.appColors.backgroundPrimary,
       body: SafeArea(
@@ -34,11 +32,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
           padding: EdgeInsets.all(16.w),
           child: Column(
             children: [
-              _buildPageView(),
-              if (selectedPage == pages.length - 1)
-                _buildGetStartedButton(context),
+              _buildPageView(ref),
+              _buildGetStartedButton(context, ref, selectedPage),
               SizedBox(height: 16.h),
-              _buildDotIndicator(context),
+              _buildDotIndicator(context, selectedPage),
             ],
           ),
         ),
@@ -46,13 +43,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
     );
   }
 
-  Widget _buildPageView() {
+  Widget _buildPageView(WidgetRef ref) {
     return Expanded(
       child: PageView.builder(
         onPageChanged: (index) {
-          setState(() {
-            selectedPage = index;
-          });
+          ref.read(selectedPageProvider.notifier).state = index;
         },
         itemCount: pages.length,
         itemBuilder: (context, index) {
@@ -62,12 +57,16 @@ class _OnboardingPageState extends State<OnboardingPage> {
     );
   }
 
-  Widget _buildGetStartedButton(BuildContext context) {
+  Widget _buildGetStartedButton(
+      BuildContext context, WidgetRef ref, int selectedPage) {
     if (selectedPage == pages.length - 1) {
       return BaseButton(
         title: context.l10n.onboardingGetStarted,
         isEnabled: true,
-        action: () => context.navigator.toLogin(),
+        action: () => {
+          ref.read(completeOnboardingUseCaseProvider).setOnboardingComplete(),
+          context.navigator.toLogin()
+        },
       );
     } else {
       return Container();
@@ -127,7 +126,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
     );
   }
 
-  Widget _buildDotIndicator(BuildContext context) {
+  Widget _buildDotIndicator(BuildContext context, int selectedPage) {
     return Row(
       children: [
         Expanded(

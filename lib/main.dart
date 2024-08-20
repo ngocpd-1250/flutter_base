@@ -39,6 +39,7 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appTheme = ref.watch(appThemeProvider);
+    final router = ref.watch(appRouterProvider);
 
     return ScreenUtilInit(
       designSize: const Size(360, 800),
@@ -51,7 +52,7 @@ class MyApp extends ConsumerWidget {
           theme: AppTheme.dark,
           darkTheme: AppTheme.dark,
           themeMode: appTheme.themeMode,
-          routerConfig: AppRoute.router,
+          routerConfig: router,
         );
       },
     );

@@ -27,6 +27,17 @@ class LocalDataSource {
     _sharedPreferences.setString(SharedPreferencesKeys.user.name, raw);
   }
 
+  void saveOnboardingStatus(bool isDone) {
+    _sharedPreferences.setBool(
+        SharedPreferencesKeys.isDoneOnboarding.name, isDone);
+  }
+
+  bool getOnboardingStatus() {
+    return _sharedPreferences
+            .getBool(SharedPreferencesKeys.isDoneOnboarding.name) ??
+        false;
+  }
+
   void clearLocalData() {
     _secureStorage.removeAll();
     _sharedPreferences.clear();
