@@ -17,16 +17,16 @@ class AppNavigatorImpl implements AppNavigator {
 
   @override
   void toLogin() {
-    context.pushReplacementNamed(AppRoutes.login.name);
-  }
-
-  @override
-  void toRegister() {
-    context.pushReplacementNamed(AppRoutes.register.name);
+    context.pushReplacement(AppRoutes.login.path);
   }
 
   @override
   void toHome() {
-    context.replaceNamed(AppRoutes.home.name);
+    context.replace(AppRoutes.topMovie.path);
+  }
+
+  @override
+  void toRegister() {
+    context.pushReplacement(AppRoutes.register.path);
   }
 }

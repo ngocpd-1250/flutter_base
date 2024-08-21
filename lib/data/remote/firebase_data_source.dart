@@ -1,12 +1,18 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:base_flutter/data/base/data_source.dart';
+import 'package:base_flutter/data/local/local_data_source.dart';
+import 'package:base_flutter/data/model/auth_token.dart';
 
 class FirebaseDataSource with DataSource {
   final FirebaseAuth _firebaseAuth;
+  final LocalDataSource? _localDataSource;
 
-  FirebaseDataSource({FirebaseAuth? firebaseAuth})
-      : _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance;
+  FirebaseDataSource({
+    FirebaseAuth? firebaseAuth,
+    LocalDataSource? localDataSource,
+  })  : _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance,
+        _localDataSource = localDataSource;
 
   Future<User?> signIn({
     required String email,
@@ -18,6 +24,11 @@ class FirebaseDataSource with DataSource {
         email: email,
         password: password,
       );
+
+      final token =
+          AuthToken(accessToken: userCredential.user?.refreshToken ?? '');
+      _localDataSource?.saveAuthTokens(token);
+
       return userCredential.user;
     });
 
