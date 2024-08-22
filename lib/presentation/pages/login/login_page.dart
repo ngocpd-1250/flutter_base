@@ -11,7 +11,7 @@ import 'package:base_flutter/presentation/components/base_textfield.dart';
 import 'package:base_flutter/presentation/pages/login/login_state.dart';
 import 'package:base_flutter/presentation/pages/login/login_view_model.dart';
 import 'package:base_flutter/presentation/theme/app_them.dart';
-import 'package:base_flutter/shared/build_context_ext.dart';
+import 'package:base_flutter/shared/extensions/build_context_ext.dart';
 import 'package:base_flutter/shared/utils/input_validator.dart';
 
 class LoginPage extends ConsumerWidget {

@@ -13,5 +13,11 @@
     "commonConfirmPassword": "パスワードを確認",
     "commonDontHaveAccount": "アカウントをお持ちでないですか？",
     "commonAlreadyHaveAccount": "すでにアカウントをお持ちですか？",
-    "registerSuccess": "登録が成功しました。ログインしてください!"
+    "registerSuccess": "登録が成功しました。ログインしてください!",
+    "bottomBarMovie": "映画",
+    "bottomBarTodo": "タスク",
+    "bottomBarSettings": "設定",
+    "settingsDarkMode": "ダークモード",
+    "settingsJapaneseLanguage": "日本語",
+    "settingsLogout": "ログアウト"
 }

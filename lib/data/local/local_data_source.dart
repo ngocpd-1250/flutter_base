@@ -36,12 +36,17 @@ class LocalDataSource {
     return null;
   }
 
+  void removeAuthTokens() {
+    _secureStorage.remove(StorageKeys.accessToken.name);
+    _secureStorage.remove(StorageKeys.refreshToken.name);
+  }
+
   void saveUser(UserData user) {
     final raw = jsonEncode(user.toJson());
     _sharedPreferences.setString(SharedPreferencesKeys.user.name, raw);
   }
 
-  void saveOnboardingStatus(bool isDone) {
+  void setOnboardingStatus(bool isDone) {
     _sharedPreferences.setBool(
         SharedPreferencesKeys.isDoneOnboarding.name, isDone);
   }
@@ -49,6 +54,26 @@ class LocalDataSource {
   bool getOnboardingStatus() {
     return _sharedPreferences
             .getBool(SharedPreferencesKeys.isDoneOnboarding.name) ??
+        false;
+  }
+
+  void setDarkModeStatus(bool isDarkMode) {
+    _sharedPreferences.setBool(
+        SharedPreferencesKeys.isDarkMode.name, isDarkMode);
+  }
+
+  bool getDarkModeStatus() {
+    return _sharedPreferences.getBool(SharedPreferencesKeys.isDarkMode.name) ??
+        false;
+  }
+
+  void setJapaneseLanguageStatus(bool isJapanese) {
+    _sharedPreferences.setBool(
+        SharedPreferencesKeys.isJapanese.name, isJapanese);
+  }
+
+  bool getJapaneseLanguageStatus() {
+    return _sharedPreferences.getBool(SharedPreferencesKeys.isJapanese.name) ??
         false;
   }
 

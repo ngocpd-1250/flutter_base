@@ -18,7 +18,7 @@ class LoginViewModel extends _$LoginViewModel {
     try {
       state = state.copyWith(status: ProcessStatus.loading);
       final input = LoginInput(username: username, password: password);
-      await ref.read(loginUseCaseProvider).call(input);
+      await ref.read(loginUseCaseProvider).execute(input);
       state = state.copyWith(status: ProcessStatus.success);
     } catch (e) {
       state = state.copyWith(status: ProcessStatus.failure, error: e);

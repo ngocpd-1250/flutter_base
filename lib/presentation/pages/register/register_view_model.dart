@@ -18,7 +18,7 @@ class RegisterViewModel extends _$RegisterViewModel {
     try {
       state = state.copyWith(status: ProcessStatus.loading);
       final input = RegisterInput(username: username, password: password);
-      await ref.read(registerUseCaseProvider).call(input);
+      await ref.read(registerUseCaseProvider).execute(input);
       state = state.copyWith(status: ProcessStatus.success);
     } catch (e) {
       state = state.copyWith(status: ProcessStatus.failure, error: e);

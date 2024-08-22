@@ -11,7 +11,7 @@ import 'package:base_flutter/data/local/storage/storage_keys.dart';
 import 'package:base_flutter/di/local_provider.dart';
 import 'package:base_flutter/presentation/router/app_route.dart';
 import 'package:base_flutter/presentation/theme/app_them.dart';
-import 'package:base_flutter/presentation/theme/app_theme_provider.dart';
+import 'package:base_flutter/shared/provider/app_settings.dart';
 
 import 'firebase_options.dart';
 
@@ -38,7 +38,10 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final appTheme = ref.watch(appThemeProvider);
+    final settings = ref.watch(appSettingsProvider);
+    final themeMode = settings.isDarkMode ? ThemeMode.dark : ThemeMode.light;
+    final locale =
+        settings.isJapanese ? const Locale("ja") : const Locale("en");
     final router = ref.watch(appRouterProvider);
 
     return ScreenUtilInit(
@@ -47,11 +50,12 @@ class MyApp extends ConsumerWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp.router(
+          locale: locale,
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
-          theme: AppTheme.dark,
+          theme: AppTheme.light,
           darkTheme: AppTheme.dark,
-          themeMode: appTheme.themeMode,
+          themeMode: themeMode,
           routerConfig: router,
         );
       },

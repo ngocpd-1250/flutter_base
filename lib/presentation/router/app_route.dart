@@ -22,7 +22,6 @@ final GlobalKey<NavigatorState> _rootNavigatorKey =
 GoRouter appRouter(AppRouterRef ref) {
   final isOnboardingComplete =
       ref.read(localDataSourceProvider).getOnboardingStatus();
-
   final isLoggedIn = ref.read(localDataSourceProvider).getAuthTokens() != null;
 
   final authRoutes = <GoRoute>[

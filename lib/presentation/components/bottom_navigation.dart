@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import 'package:base_flutter/presentation/router/app_routes.dart';
 import 'package:base_flutter/presentation/theme/app_them.dart';
-import 'package:base_flutter/shared/build_context_ext.dart';
+import 'package:base_flutter/shared/extensions/build_context_ext.dart';
 
 class BottomNavigation extends StatelessWidget {
   const BottomNavigation({
@@ -18,18 +18,19 @@ class BottomNavigation extends StatelessWidget {
     return Scaffold(
       body: child,
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        backgroundColor: context.theme.appColors.backgroundPrimary,
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.movie),
-            label: 'Movie',
+            icon: const Icon(Icons.movie),
+            label: context.l10n.bottomBarMovie,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.task),
-            label: 'Todo',
+            icon: const Icon(Icons.task),
+            label: context.l10n.bottomBarTodo,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: const Icon(Icons.settings),
+            label: context.l10n.bottomBarSettings,
           ),
         ],
         currentIndex: _getSelectedIndex(context),

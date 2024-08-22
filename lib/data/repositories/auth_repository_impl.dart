@@ -24,6 +24,6 @@ class AuthRepositoryImpl extends AuthRepository {
 
   @override
   Future logout() async {
-    _localDataSource.clearLocalData();
+    _localDataSource.removeAuthTokens();
   }
 }

@@ -7,7 +7,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:base_flutter/di/usecase_provider.dart';
 import 'package:base_flutter/presentation/components/base_button.dart';
 import 'package:base_flutter/presentation/theme/app_them.dart';
-import 'package:base_flutter/shared/build_context_ext.dart';
+import 'package:base_flutter/shared/extensions/build_context_ext.dart';
 import 'package:base_flutter/shared/gen/assets.gen.dart';
 
 enum OnboardingPageType {
@@ -26,7 +26,6 @@ class OnboardingPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final selectedPage = ref.watch(selectedPageProvider);
     return Scaffold(
-      backgroundColor: context.theme.appColors.backgroundPrimary,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(16.w),

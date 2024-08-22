@@ -13,5 +13,11 @@
     "commonConfirmPassword": "Confirm Password",
     "commonDontHaveAccount": "Don’t have an account?",
     "commonAlreadyHaveAccount": "Already have an account?",
-    "registerSuccess": "Registered successfully. Please login!"
+    "registerSuccess": "Registered successfully. Please login!",
+    "bottomBarMovie": "Movie",
+    "bottomBarTodo": "Todo",
+    "bottomBarSettings": "Settings",
+    "settingsDarkMode": "Dark Mode",
+    "settingsJapaneseLanguage": "Japanese Language",
+    "settingsLogout": "Logout"
 }

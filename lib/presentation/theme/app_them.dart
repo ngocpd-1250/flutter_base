@@ -4,16 +4,7 @@ import 'app_colors_extension.dart';
 import 'app_text_theme_extension.dart';
 import 'app_typography.dart';
 
-class AppTheme with ChangeNotifier {
-  ThemeMode _themeMode = ThemeMode.light;
-
-  ThemeMode get themeMode => _themeMode;
-
-  set themeMode(ThemeMode themeMode) {
-    _themeMode = themeMode;
-    notifyListeners();
-  }
-
+class AppTheme {
   static final light = () {
     final defaultTheme = ThemeData.light();
 
@@ -21,6 +12,7 @@ class AppTheme with ChangeNotifier {
       textTheme: defaultTheme.textTheme.copyWith(
         bodyMedium: AppTypography.bodyMedium.copyWith(color: Colors.black),
       ),
+      scaffoldBackgroundColor: _lightAppColors.backgroundPrimary,
       extensions: [
         _lightAppColors,
         _lightTextTheme,
@@ -61,6 +53,7 @@ class AppTheme with ChangeNotifier {
       textTheme: defaultTheme.textTheme.copyWith(
         bodyMedium: AppTypography.bodyMedium.copyWith(color: Colors.white),
       ),
+      scaffoldBackgroundColor: _darkAppColors.backgroundPrimary,
       extensions: [
         _darkAppColors,
         _darkTextTheme,

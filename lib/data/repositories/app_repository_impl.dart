@@ -10,6 +10,31 @@ class AppRepositoryImpl extends AppRepository {
 
   @override
   void setOnboardingComplete() {
-    _localDataSource.saveOnboardingStatus(true);
+    _localDataSource.setOnboardingStatus(true);
+  }
+
+  @override
+  bool getOnboardingStatus() {
+    return _localDataSource.getOnboardingStatus();
+  }
+
+  @override
+  void setDarkModeStatus(bool isDarkMode) {
+    _localDataSource.setDarkModeStatus(isDarkMode);
+  }
+
+  @override
+  bool getDarkModeStatus() {
+    return _localDataSource.getDarkModeStatus();
+  }
+
+  @override
+  void setJapaneseLanguageStatus(bool isJapanese) {
+    _localDataSource.setJapaneseLanguageStatus(isJapanese);
+  }
+
+  @override
+  bool getJapaneseLanguageStatus() {
+    return _localDataSource.getJapaneseLanguageStatus();
   }
 }

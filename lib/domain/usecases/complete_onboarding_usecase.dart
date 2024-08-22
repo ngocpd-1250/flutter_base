@@ -1,5 +1,4 @@
 import 'package:base_flutter/domain/repositories/app_repository.dart';
-import 'package:base_flutter/domain/usecases/base/base_input.dart';
 
 class CompleteOnboardingUseCase {
   final AppRepository _repository;
@@ -10,5 +9,3 @@ class CompleteOnboardingUseCase {
     _repository.setOnboardingComplete();
   }
 }
-
-class OnboardingInput implements BaseInput {}

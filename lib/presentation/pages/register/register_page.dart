@@ -11,7 +11,7 @@ import 'package:base_flutter/presentation/components/base_textfield.dart';
 import 'package:base_flutter/presentation/pages/register/register_state.dart';
 import 'package:base_flutter/presentation/pages/register/register_view_model.dart';
 import 'package:base_flutter/presentation/theme/app_them.dart';
-import 'package:base_flutter/shared/build_context_ext.dart';
+import 'package:base_flutter/shared/extensions/build_context_ext.dart';
 import 'package:base_flutter/shared/utils/input_validator.dart';
 
 class RegisterPage extends ConsumerWidget {
